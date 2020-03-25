@@ -6,11 +6,11 @@ public class Weather {
         System.out.println("Is it raining now?");
         Scanner scanner = new Scanner(System.in);
         String answer = scanner.nextLine();
-        if (answer.equalsIgnoreCase("yes")) {
+        if (answer.equalsIgnoreCase("leje fest")) {
             System.out.println("Do not forget umbrella");
         }
 
-        else if (answer.equalsIgnoreCase("no")) {
+        else if (answer.equalsIgnoreCase("no nie pada chwilowo")) {
             System.out.println("Leave umbrella at home");
         }
 
