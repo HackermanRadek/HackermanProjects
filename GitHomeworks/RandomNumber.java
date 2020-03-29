@@ -14,10 +14,11 @@ public class RandomNumber {
 
             randoms [i]= ThreadLocalRandom.current().nextInt(100);
 
-            System.out.println(Arrays.toString(randoms));
+
 
         }
 
+        System.out.println(Arrays.toString(randoms));
 
     }
 }
