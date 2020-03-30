@@ -1,21 +1,19 @@
+
+
 public class sumOfNumbers {
     public static void main(String[] args) {
 
 
-        int integerNumber = Integer.parseInt("123" );
-        integerNumber = Integer.parseInt(args[0]);
+        int sum = 0;
 
-        for (int i=0; i< args.length; i++){
+        for (int i = 0; i < args.length; i++) {
 
-            String sum;
-            sum = sum  + args[i];
+            sum = sum + Integer.parseInt(args[i]);
 
-            System.out.println("Sum is :" + sum);
         }
 
-
-
-
+        System.out.println("The sum of numbers is: " + sum);
 
     }
 }
+
