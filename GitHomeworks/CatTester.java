@@ -1,13 +1,14 @@
 public class CatTester {
     public static void main(String[] args) {
-        Cat Tom = new Cat("Tom");
-        Tom.feed(" milk");
 
+        Cat tom = new Cat("Tom");
 
-        Tom.feed(" mouse");
+        tom.feed(" milk");
 
-        Tom.sleeps(5);
+        tom.sleeps(5);
 
-        Tom.play("with a ball");
+        tom.feed("mouse");
+
+        tom.play(" a ball");
     }
 }
