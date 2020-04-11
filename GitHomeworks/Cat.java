@@ -8,20 +8,17 @@ public class Cat {
         public Cat (String name){
             this.name = name;
             this.hungry = true;
-
-            if (hungry= true){
-                System.out.println(name + " is hungry");
-            }else if (hungry=false){
-                System.out.println(name + " is not hungry ");
             }
 
-            }
 
         public  void feed  (String mealName){
+                if ( hungry=true) {
+                    System.out.println(name + " is eating " + mealName);
 
-            System.out.println(name + " is eating " + mealName);
-
-            hungry=false;
+                    hungry = false;
+                }else {
+                    System.out.println(name + " is not hungry");
+                }
 
 
         }
