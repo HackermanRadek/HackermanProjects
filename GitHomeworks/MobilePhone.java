@@ -24,43 +24,54 @@ public class MobilePhone {
     public void install (String nameOfApplication, int weightOfApplication){
 
 
-            this.memory=this.memory-weightOfApplication;
+            this.freeMemory=this.freeMemory-weightOfApplication;
 
-        if (this.memory<=0){
+        if (this.freeMemory<0){
 
 
             System.out.println("You cannot install application " + nameOfApplication + ". There is not enough memory.");
         }else{
 
             System.out.println("Application " + nameOfApplication + " has been installed on Sony Xperia ");
-            System.out.println("Free memory: " + this.memory);
+            System.out.println("Free memory: " + this.freeMemory);
         }
 
-    } public void use(String nameOfApplication, int hours){
-
-        System.out.println(this.remainBattery);
-
-        int i = 100*hours;
-        this.remainBattery=this.remainBattery-i;
-        int k = (i-this.remainBattery)/100;
+    } public void use(String nameOfApplication, int hours) {
 
 
-        if (this.remainBattery<=0){
-            int x = hours-k;
 
-            System.out.println("Application " + nameOfApplication + " has been used for " + x + " hours.");
-            System.out.println("Phone has been discharged.");
-        }   else {
+        int decreaseBatteryBy100MAH = hours * 100;
 
+        this.remainBattery = this.remainBattery - decreaseBatteryBy100MAH;
+
+        if (this.remainBattery < 0) {
+            int hoursLeftTo0 = ((decreaseBatteryBy100MAH + this.remainBattery) / 100);
+
+
+
+            System.out.println("Application " + nameOfApplication + " has been used for " + hoursLeftTo0 + " hours");
+
+            System.out.println("Phone has been discharged");
+
+
+
+
+
+
+        }else {
             System.out.println("Application " + nameOfApplication + " has been used for " + hours + " hours.");
-            System.out.println("Remain battery " + this.remainBattery + " mAh");
+            System.out.println("Remain battery: " + this.remainBattery + "mAh");
         }
 
 
 
+    }
 
+    public void charge(){
 
-    }   public void charge(){
+        this.remainBattery=batteryCapacity;
+
+        System.out.println("Phone has been charged. Remain battery " + this.remainBattery + " mAh");
 
     }
 
