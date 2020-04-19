@@ -6,80 +6,65 @@ public class MobilePhone {
     private int remainBattery;
     private int memory;
     private int freeMemory;
-    private boolean discharged;
 
-    public MobilePhone(String brand, String model, int batteryCapacity, int memory) {
+
+
+    public MobilePhone(String brand, String model, int batteryCapacity, int memory ) {
         this.brand = brand;
         this.model = model;
-        this.batteryCapacity = batteryCapacity;
-        this.memory = memory;
+        this.memory=memory;
+        this.freeMemory=memory;
+        this.batteryCapacity=batteryCapacity;
+        this.remainBattery=batteryCapacity;
+
 
     }
 
 
-    public void install(String nameOfApplication, int weightOfApplication) {
+    public void install (String nameOfApplication, int weightOfApplication){
 
-        this.freeMemory=this.memory;
-        this.memory=memory-weightOfApplication;
 
-        if (this.memory <= 0) {
+            this.memory=this.memory-weightOfApplication;
 
-            this.freeMemory = 0;
+        if (this.memory<=0){
 
-            System.out.println("You cant install " + nameOfApplication + ". There is not enough memory. ");
 
-        } else {
-            System.out.println("Application " + nameOfApplication + " has been installed on Sony Xperia L1 ");
+            System.out.println("You cannot install application " + nameOfApplication + ". There is not enough memory.");
+        }else{
+
+            System.out.println("Application " + nameOfApplication + " has been installed on Sony Xperia ");
             System.out.println("Free memory: " + this.memory);
         }
 
+    } public void use(String nameOfApplication, int hours){
+
+        System.out.println(this.remainBattery);
+
+        int i = 100*hours;
+        this.remainBattery=this.remainBattery-i;
+        int k = (i-this.remainBattery)/100;
 
 
+        if (this.remainBattery<=0){
+            int x = hours-k;
 
-    }
+            System.out.println("Application " + nameOfApplication + " has been used for " + x + " hours.");
+            System.out.println("Phone has been discharged.");
+        }   else {
 
-
-    public void use(String nameOfApplication, int hours) {
-
-
-        int i = 100 * hours;
-
-
-        this.remainBattery = this.batteryCapacity;
-
-        this.batteryCapacity = batteryCapacity - i;
-
-
-
-        if (this.batteryCapacity <= 0) {
-
-                this.batteryCapacity=0;
-
-            int x = hours - ((i - remainBattery) / 100);
-
-            System.out.println("Application " + nameOfApplication + " has been used for " + x + " hours");
-
-
-            System.out.println("Phone has been discharged");
-
-
-
-        } else {
-            System.out.println("Application " + nameOfApplication + " has been used for " + hours + " hours");
-
-            System.out.println("Remain battery: " + this.batteryCapacity + " mAh");
-
+            System.out.println("Application " + nameOfApplication + " has been used for " + hours + " hours.");
+            System.out.println("Remain battery " + this.remainBattery + " mAh");
         }
 
 
-    }
-    public void charge() {
-        
 
 
-        System.out.println("Sony Xperia L1 has been charged");
 
+    }   public void charge(){
 
     }
+
+
+
+
 }
-
