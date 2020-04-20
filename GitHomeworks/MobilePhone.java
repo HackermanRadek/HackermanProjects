@@ -24,6 +24,7 @@ public class MobilePhone {
     public void install (String nameOfApplication, int weightOfApplication){
 
 
+
             this.freeMemory=this.freeMemory-weightOfApplication;
 
         if (this.freeMemory<0){
@@ -42,19 +43,26 @@ public class MobilePhone {
 
         int decreaseBatteryBy100MAH = hours * 100;
 
+
+
         this.remainBattery = this.remainBattery - decreaseBatteryBy100MAH;
 
+        int hoursLeftTo0 = ((decreaseBatteryBy100MAH + this.remainBattery) / 100);
+
+        if (hoursLeftTo0==0){
+            System.out.println("You cannot run app " + nameOfApplication);
+        } else if (hoursLeftTo0 <= 0){
+
+            System.out.println("Application " + nameOfApplication + " has been used for " + hoursLeftTo0 + " hours");
+        }
+
         if (this.remainBattery < 0) {
-            int hoursLeftTo0 = ((decreaseBatteryBy100MAH + this.remainBattery) / 100);
 
-
+            this.remainBattery=0;
 
             System.out.println("Application " + nameOfApplication + " has been used for " + hoursLeftTo0 + " hours");
 
-            System.out.println("Phone has been discharged");
-
-
-
+            System.out.println("Phone has been discharged.");
 
 
 
