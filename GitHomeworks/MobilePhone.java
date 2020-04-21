@@ -49,25 +49,28 @@ public class MobilePhone {
 
         int hoursLeftTo0 = ((decreaseBatteryBy100MAH + this.remainBattery) / 100);
 
-        if (hoursLeftTo0==0){
-            System.out.println("You cannot run app " + nameOfApplication);
-        } else if (hoursLeftTo0 <= 0){
 
-            System.out.println("Application " + nameOfApplication + " has been used for " + hoursLeftTo0 + " hours");
-        }
 
-        if (this.remainBattery < 0) {
 
-            this.remainBattery=0;
 
-            System.out.println("Application " + nameOfApplication + " has been used for " + hoursLeftTo0 + " hours");
+
+
+
+        if (this.remainBattery < 0  && hoursLeftTo0 != 0) {
+
+
+            System.out.println("Application " + nameOfApplication + " has been used for " + hoursLeftTo0 + " hours.");
+
+            this.remainBattery = 0;
 
             System.out.println("Phone has been discharged.");
 
+        }else if (hoursLeftTo0==0){
 
+            System.out.println("You can`t run application " + nameOfApplication + ".Phone is discharged.");
 
         }else {
-            System.out.println("Application " + nameOfApplication + " has been used for " + hours + " hours.");
+            System.out.println("Application " + nameOfApplication + " has been used for " + hours + "hours");
             System.out.println("Remain battery: " + this.remainBattery + "mAh");
         }
 
