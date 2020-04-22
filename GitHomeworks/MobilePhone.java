@@ -29,8 +29,11 @@ public class MobilePhone {
 
         if (this.freeMemory<0){
 
+            this.freeMemory =  this.freeMemory + weightOfApplication;
 
             System.out.println("You cannot install application " + nameOfApplication + ". There is not enough memory.");
+
+            
         }else{
 
             System.out.println("Application " + nameOfApplication + " has been installed on Sony Xperia ");
