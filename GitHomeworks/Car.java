@@ -3,7 +3,7 @@
      private String name;
     private double fuelTankCapacity;
     private double remainingFuelAmount;
-    private boolean isStarted;
+
     private Engine diesel;
 
 
@@ -18,7 +18,7 @@
      }
      public void startEngine() {
 
-        if (isStarted) {
+        if (diesel.isStarted()){
 
             System.out.println("VW engine is already started");
         } else {
@@ -26,25 +26,20 @@
         }
 
 
-         isStarted = true;
-
-
-
 
      }
 
      public void stopEngine(){
 
-         if (isStarted==false){
+         if (diesel.isStarted()==false){
              System.out.println("VW engine is already stopped");
          }else {
              System.out.println("VW engine - engine stop");
          }
 
-         isStarted=false;
+            diesel.isStarted()=false;
 
      }
-
 
 
      public void tank(){
@@ -64,7 +59,7 @@
         double distanceToEnd=( distance +  (5*this.remainingFuelAmount));
 
 
-        if (isStarted && speed<= diesel.getMaxSpeed() && this.remainingFuelAmount<0 && distanceToEnd !=0 ) {
+        if (diesel.isStarted() && speed<= diesel.getMaxSpeed() && this.remainingFuelAmount<0 && distanceToEnd !=0 ) {
 
 
 
@@ -86,7 +81,7 @@
 
 
 
-        else if (isStarted==false){
+        else if (diesel.isStarted()==false){
             System.out.println("Start engine first");
 
             this.remainingFuelAmount=this.remainingFuelAmount=this.remainingFuelAmount+(distance/5);
