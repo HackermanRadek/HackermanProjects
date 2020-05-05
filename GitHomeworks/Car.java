@@ -1,109 +1,87 @@
- class Car {
-
-     private String name;
+ class Car  {
+    private String carName;
     private double fuelTankCapacity;
     private double remainingFuelAmount;
 
-    private Engine diesel;
+    private Engine engine;
 
 
-     public Car(String name, double fuelTankCapacity, Engine diesel) {
-
-         this.name=name;
+     public Car(String carName, Engine diesel, double fuelTankCapacity) {
+         this.carName=carName;
+         this.engine=diesel;
          this.fuelTankCapacity=fuelTankCapacity;
          this.remainingFuelAmount=fuelTankCapacity;
-         this.diesel=diesel;
-
-
-     }
-     public void startEngine() {
-
-        if (diesel.isStarted()){
-
-            System.out.println("VW engine is already started");
-        } else {
-            System.out.println("VW engine - engine start");
-        }
-
-
-
      }
 
-     public void stopEngine(){
 
-         if (diesel.isStarted()==false){
-             System.out.println("VW engine is already stopped");
+     public void startEngine(){
+
+         if (engine.isStarted){
+             System.out.println("Engine is already started");
          }else {
-             System.out.println("VW engine - engine stop");
+             System.out.println("Engine start");
          }
-
-            diesel.isStarted()=false;
+         engine.isStarted=true;
+     }
+     public void stopEngine() {
+         if (engine.isStarted == false) {
+             System.out.println("Engine is already stopped");
+         } else {
+             System.out.println("Engine stop");
+         }
+         engine.isStarted = false;
 
      }
+         public void tank () {
+
+             this.remainingFuelAmount = fuelTankCapacity;
+
+             System.out.println(carName + " has been tanked up.");
+             System.out.println("Remaining fuel amount: " + this.remainingFuelAmount + " L");
+
+         }
+         public void drive ( int speed, double distance){
 
 
-     public void tank(){
+             this.remainingFuelAmount = this.remainingFuelAmount - (distance / 5);
 
-         this.remainingFuelAmount=fuelTankCapacity;
+             double distanceToEnd = (distance + (5 * this.remainingFuelAmount));
 
-         System.out.println("VW Golf has been tanked up.");
-         System.out.println("Remaining fuel amount: " + this.remainingFuelAmount + " L");
 
+             if (engine.isStarted() && speed <= engine.getMaxSpeed() && this.remainingFuelAmount < 0 && distanceToEnd != 0) {
+
+
+                 System.out.println(carName + " has been driven with a speed of " + speed + " km/h for a distance of " +
+                         +distanceToEnd + " km.");
+
+
+             } else if (speed > engine.getMaxSpeed()) {
+
+                 System.out.println("You can drive only with max speed");
+
+                 this.remainingFuelAmount = this.remainingFuelAmount + (distance / 5);
+
+             } else if (distanceToEnd == 0) {
+                 System.out.println("You must tank the car first!");
+             } else if (engine.isStarted() == false) {
+                 System.out.println("Start engine first");
+
+                 this.remainingFuelAmount = this.remainingFuelAmount = this.remainingFuelAmount + (distance / 5);
+             } else {
+                 System.out.println(carName + " has been driven with a speed of " + speed + " km/h for a distance of "
+                         + distance + " km.");
+
+             }
+
+             if (this.remainingFuelAmount <= 0) {
+
+                 this.remainingFuelAmount = 0;
+
+
+                 System.out.println("Tank is empty.");
+             } else {
+                 System.out.println("Remaining fuel amount: " + this.remainingFuelAmount + " L.");
+             }
+
+         }
      }
-
-    public void drive (int speed, double distance) {
-
-
-        this.remainingFuelAmount = this.remainingFuelAmount - (distance/5);
-
-        double distanceToEnd=( distance +  (5*this.remainingFuelAmount));
-
-
-        if (diesel.isStarted() && speed<= diesel.getMaxSpeed() && this.remainingFuelAmount<0 && distanceToEnd !=0 ) {
-
-
-
-            System.out.println("VW Golf has been driven with a speed of " + speed + " km/h for a distance of " +
-                    + distanceToEnd + " km.");
-
-
-        }else if (speed>diesel.getMaxSpeed()) {
-
-             System.out.println("You can drive only with max speed");
-
-             this.remainingFuelAmount=this.remainingFuelAmount+(distance/5);
-
-        } else if (distanceToEnd==0){
-            System.out.println("You must tank the car first!");
-        }
-
-
-
-
-
-        else if (diesel.isStarted()==false){
-            System.out.println("Start engine first");
-
-            this.remainingFuelAmount=this.remainingFuelAmount=this.remainingFuelAmount+(distance/5);
-        }
-
-
-
-        else {
-            System.out.println("VW Golf has been driven with a speed of " + speed + " km/h for a distance of "
-                    + distance + " km.");
-
-        }
-
-        if (this.remainingFuelAmount<=0){
-
-            this.remainingFuelAmount=0;
-
-
-            System.out.println( "Tank is empty." );
-        }else {
-            System.out.println("Remaining fuel amount: " + this.remainingFuelAmount + " L.");
-        }
-
-    }
-}
