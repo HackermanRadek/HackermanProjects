@@ -1,87 +1,80 @@
- class Car  {
-    private String carName;
-    private double fuelTankCapacity;
-    private double remainingFuelAmount;
+ class Car extends Engine  {
 
-    private Engine engine;
+      private String carName;
+      private double fuelTankCapacity;
+      private double remainingFuelAmount;
 
-
-     public Car(String carName, Engine diesel, double fuelTankCapacity) {
-         this.carName=carName;
-         this.engine=diesel;
-         this.fuelTankCapacity=fuelTankCapacity;
-         this.remainingFuelAmount=fuelTankCapacity;
-     }
+      private Engine engine;
 
 
-     public void startEngine(){
+      public Car(String carName, Engine diesel, double fuelTankCapacity, String name, int horsePower, int capacity) {
+           super(name, horsePower, capacity);
 
-         if (engine.isStarted){
-             System.out.println("Engine is already started");
-         }else {
-             System.out.println("Engine start");
-         }
-         engine.isStarted=true;
-     }
-     public void stopEngine() {
-         if (engine.isStarted == false) {
-             System.out.println("Engine is already stopped");
-         } else {
-             System.out.println("Engine stop");
-         }
-         engine.isStarted = false;
+           this.carName=carName;
+           this.engine=diesel;
+           this.fuelTankCapacity=fuelTankCapacity;
+           this.remainingFuelAmount=fuelTankCapacity;
+      }
 
-     }
-         public void tank () {
+      @Override
+      public void startEngine() {
+           super.startEngine();
+      }
 
-             this.remainingFuelAmount = fuelTankCapacity;
+      @Override
+      public void stopEngine() {
+           super.stopEngine();
+      }
 
-             System.out.println(carName + " has been tanked up.");
-             System.out.println("Remaining fuel amount: " + this.remainingFuelAmount + " L");
+      public void tank () {
 
-         }
-         public void drive ( int speed, double distance){
+           this.remainingFuelAmount = fuelTankCapacity;
 
+           System.out.println(carName + " has been tanked up.");
+           System.out.println("Remaining fuel amount: " + this.remainingFuelAmount + " L");
 
-             this.remainingFuelAmount = this.remainingFuelAmount - (distance / 5);
-
-             double distanceToEnd = (distance + (5 * this.remainingFuelAmount));
+      }
+      public void drive ( int speed, double distance){
 
 
-             if (engine.isStarted() && speed <= engine.getMaxSpeed() && this.remainingFuelAmount < 0 && distanceToEnd != 0) {
+           this.remainingFuelAmount = this.remainingFuelAmount - (distance / 5);
+
+           double distanceToEnd = (distance + (5 * this.remainingFuelAmount));
 
 
-                 System.out.println(carName + " has been driven with a speed of " + speed + " km/h for a distance of " +
-                         +distanceToEnd + " km.");
+           if (engine.isStarted() && speed <= engine.getMaxSpeed() && this.remainingFuelAmount < 0 && distanceToEnd != 0) {
 
 
-             } else if (speed > engine.getMaxSpeed()) {
-
-                 System.out.println("You can drive only with max speed");
-
-                 this.remainingFuelAmount = this.remainingFuelAmount + (distance / 5);
-
-             } else if (distanceToEnd == 0) {
-                 System.out.println("You must tank the car first!");
-             } else if (engine.isStarted() == false) {
-                 System.out.println("Start engine first");
-
-                 this.remainingFuelAmount = this.remainingFuelAmount = this.remainingFuelAmount + (distance / 5);
-             } else {
-                 System.out.println(carName + " has been driven with a speed of " + speed + " km/h for a distance of "
-                         + distance + " km.");
-
-             }
-
-             if (this.remainingFuelAmount <= 0) {
-
-                 this.remainingFuelAmount = 0;
+                System.out.println(carName + " has been driven with a speed of " + speed + " km/h for a distance of " +
+                        +distanceToEnd + " km.");
 
 
-                 System.out.println("Tank is empty.");
-             } else {
-                 System.out.println("Remaining fuel amount: " + this.remainingFuelAmount + " L.");
-             }
+           } else if (speed > engine.getMaxSpeed()) {
 
-         }
-     }
+                System.out.println("You can drive only with max speed");
+
+                this.remainingFuelAmount = this.remainingFuelAmount + (distance / 5);
+
+           } else if (distanceToEnd == 0) {
+                System.out.println("You must tank the car first!");
+           } else if (isStarted==false) {
+                System.out.println("Start engine first");
+
+                this.remainingFuelAmount = this.remainingFuelAmount = this.remainingFuelAmount + (distance / 5);
+           } else {
+                System.out.println(carName + " has been driven with a speed of " + speed + " km/h for a distance of "
+                        + distance + " km.");
+
+           }
+
+           if (this.remainingFuelAmount <= 0) {
+
+                this.remainingFuelAmount = 0;
+
+
+                System.out.println("Tank is empty.");
+           } else {
+                System.out.println("Remaining fuel amount: " + this.remainingFuelAmount + " L.");
+           }
+      }
+ }
