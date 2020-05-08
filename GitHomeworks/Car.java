@@ -1,4 +1,4 @@
- class Car extends Engine  {
+ class Car   {
 
       private String carName;
       private double fuelTankCapacity;
@@ -7,24 +7,20 @@
       private Engine engine;
 
 
-      public Car(String carName, Engine diesel, double fuelTankCapacity, String name, int horsePower, int capacity) {
-           super(name, horsePower, capacity);
+
+      public Car(String carName, Engine diesel, double fuelTankCapacity) {
+
 
            this.carName=carName;
            this.engine=diesel;
            this.fuelTankCapacity=fuelTankCapacity;
            this.remainingFuelAmount=fuelTankCapacity;
-      }
+      } public void startEngine(){
+          engine.startEngine();
+     }public void stopEngine(){
+          engine.stopEngine();
+     }
 
-      @Override
-      public void startEngine() {
-           super.startEngine();
-      }
-
-      @Override
-      public void stopEngine() {
-           super.stopEngine();
-      }
 
       public void tank () {
 
@@ -57,7 +53,7 @@
 
            } else if (distanceToEnd == 0) {
                 System.out.println("You must tank the car first!");
-           } else if (isStarted==false) {
+           } else if (engine.isStarted==false) {
                 System.out.println("Start engine first");
 
                 this.remainingFuelAmount = this.remainingFuelAmount = this.remainingFuelAmount + (distance / 5);
@@ -77,4 +73,10 @@
                 System.out.println("Remaining fuel amount: " + this.remainingFuelAmount + " L.");
            }
       }
+
+
+
+
+
+
  }
