@@ -53,7 +53,7 @@
 
            } else if (distanceToEnd == 0) {
                 System.out.println("You must tank the car first!");
-           } else if (engine.isStarted==false) {
+           } else if (engine.isStarted()==false) {
                 System.out.println("Start engine first");
 
                 this.remainingFuelAmount = this.remainingFuelAmount = this.remainingFuelAmount + (distance / 5);

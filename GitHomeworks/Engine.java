@@ -1,6 +1,6 @@
 public class Engine {
 
-public boolean isStarted;
+private boolean isStarted;
     private String name;
     private int horsePower;
     private int capacity;
@@ -19,7 +19,7 @@ public boolean isStarted;
 
 
 
-    public void startEngine(){
+  public  void startEngine(){
 
 
 
@@ -32,8 +32,8 @@ public boolean isStarted;
         isStarted=true;
 
     }
-    public void stopEngine(){
-        if (isStarted==false){
+   public void stopEngine(){
+        if (!isStarted){
             System.out.println("Engine is already stopped");
         }else {
             System.out.println("Engine stop");
@@ -81,10 +81,6 @@ public boolean isStarted;
 
     public boolean isStarted() {
         return isStarted;
-    }
-
-    public void setStarted(boolean started) {
-        isStarted = started;
     }
 
 
