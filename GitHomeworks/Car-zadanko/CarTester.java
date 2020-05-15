@@ -35,17 +35,18 @@ public class CarTester {
 
         for (int i = 0; i <carList.size() ; i++) {
 
+            System.out.println(carList(i));
 
-            if (Carr instanceof Chargable){
-                ((Chargable) Carr).charge();
+            if (carList instanceof Chargable){
+                ((Chargable) carList).charge();
             }
 
-            if (Carr instanceof Tankable){
-                ((Tankable) Carr).tank();
+            if (carList instanceof Tankable){
+                ((Tankable) carList).tank();
             }
 
 
-            System.out.println(carList);
+
 
         }
 
