@@ -31,15 +31,24 @@ public class CarTester {
        carList.add(fuelCar2);
        carList.add(fuelCar3);
        carList.add(hybridCar1);
-        System.out.println(carList);
 
-        if (Carr instanceof Chargable){
-            ((Chargable) Carr).charge();
+
+        for (int i = 0; i <carList.size() ; i++) {
+
+
+            if (Carr instanceof Chargable){
+                ((Chargable) Carr).charge();
+            }
+
+            if (Carr instanceof Tankable){
+                ((Tankable) Carr).tank();
+            }
+
+
+            System.out.println(carList);
+
         }
 
-        if (Carr instanceof Tankable){
-            ((Tankable) Carr).tank();
-        }
 
 
 
