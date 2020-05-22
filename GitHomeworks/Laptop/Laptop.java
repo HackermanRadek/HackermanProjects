@@ -21,7 +21,8 @@ public class Laptop implements Cloneable {
     @Override
     protected Laptop clone() throws CloneNotSupportedException {
         Laptop clone = (Laptop) super.clone();
-
+        clone.processor= this.processor.clone();
+        clone.hardDrive=this.hardDrive.clone();
         return clone;
     }
 

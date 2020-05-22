@@ -1,4 +1,4 @@
-public class HardDrive {
+public class HardDrive implements Cloneable {
     private String name;
     private String type;
     private int capacity;
@@ -32,5 +32,11 @@ public class HardDrive {
 
     public int getCapacity() {
         return capacity;
+    }
+
+
+    @Override
+    protected HardDrive clone() throws CloneNotSupportedException {
+        return (HardDrive) super.clone();
     }
 }

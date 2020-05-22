@@ -1,4 +1,4 @@
-public class Processor {
+public class Processor implements Cloneable{
 
     private String name;
     private double frequency;
@@ -36,4 +36,11 @@ public class Processor {
     public int getNumberOfCores() {
         return numberOfCores;
     }
+
+
+    @Override
+    protected Processor clone() throws CloneNotSupportedException {
+        return (Processor) super.clone();
+    }
+
 }
