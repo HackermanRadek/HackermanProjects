@@ -6,14 +6,9 @@ public class BeerTester {
         Beer beer4 = new Beer("Desperados", "Beer tequilla", 8, 10);
 
 
-        beer1.equals(beer2);
-        beer1.equals(beer1);
-        beer3.equals(beer4);
-        beer3.hashCode();
-
-
-
-
+        System.out.println(beer1.equals(beer2));
+        System.out.println(beer3.toString());
+        System.out.println(beer4.hashCode());
 
 
     }
