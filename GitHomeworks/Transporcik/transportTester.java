@@ -19,11 +19,15 @@ public class transportTester {
         Tram tram = new Tram();
 
         transportTester.fly(motorbike);
-        transportTester.fly(train);
         transportTester.fly(airplane);
+        transportTester.fly(bicycle);
+        transportTester.fly(tram);
     }
 
     public static void fly(Transport transport) {
+
+        transport.go();
+
     if (transport instanceof Airplane) {
         System.out.println("It is flying far far away");
 
