@@ -1,7 +1,3 @@
-import java.math.BigDecimal;
-import java.util.Comparator;
-import java.util.LinkedList;
-
 public class Items implements Comparable<Items> {
 
     private String name;
@@ -38,12 +34,14 @@ public class Items implements Comparable<Items> {
     }
 
     @Override
-    public int compareTo(Items items) {
+    public int compareTo(Items items1) {
 
-        int result = Integer.compare(this.price, items.price);
-        if (result == 0) {
-            result = items.name.compareTo(this.name);
-        }
+        int result = Integer.compare(this.price, items1.price);
+
         return result;
     }
+        public String compareName(Items items1){
+        return items1.getName();
+        }
+
 }

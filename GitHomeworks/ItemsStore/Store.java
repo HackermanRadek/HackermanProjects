@@ -2,7 +2,7 @@ import java.awt.*;
 import java.util.*;
 import java.util.List;
 
-public class Store implements Comparable<Items> {
+public class Store  {
 
     private String name;
     private LinkedList<Items> items;
@@ -34,28 +34,48 @@ public class Store implements Comparable<Items> {
 
 
     LinkedList<Items> storeItems = new LinkedList<Items>();
-    public void addItems(Items items){
+    public void addItems(Items items1) {
 
-        if (!storeItems .contains(items)) {
-            storeItems.add(items);
+        if (!storeItems.contains(items1)) {
+            storeItems.add(items1);
         }
+
+
+
+    }
+
+    public void fromHighest(){
+
+        storeItems.sort(Comparator.reverseOrder());
+
+        System.out.println(storeItems);
+
+    }
+
+    public void fromLowest(){
+        storeItems.sort(Comparator.naturalOrder());
+
+        System.out.println(storeItems);
+
+
+    }   public void fromA() {
+
+        storeItems.sort(Comparator.comparing(Items::toString));
+
+        System.out.println(storeItems);
+
+    }
+
+    public void fromZ(){
+
+        storeItems.sort(Comparator.comparing(Items::toString).reversed());
+
+        System.out.println(storeItems);
+
     }
 
 
 
-
-    public Collection<Items> getAllItems() {
-        return new LinkedList<>(items);
-    }
-
-
-
-
-    @Override
-    public int compareTo(Items items) {
-
-        return 0;
-    }
 }
 
 

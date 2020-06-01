@@ -33,22 +33,19 @@ public class StoreTester {
         cod.addItems(usp);
         cod.addItems(awp);
 
-        System.out.println(cod);
+            cod.fromHighest();
 
-        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++");
+        System.out.println("=============================================");
 
-        storeItems.sort(Comparator.naturalOrder());
+            cod.fromLowest();
 
-        System.out.println(cod);
+        System.out.println("=============================================");
 
-        System.out.println("=================================================");
+        cod.fromA();
 
-        storeItems.sort(Comparator.reverseOrder());
+        System.out.println("=============================================");
 
-        System.out.println(cod);
+        cod.fromZ();
 
-        System.out.println("***************************************************");
-
-        
     }
 }
