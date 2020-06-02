@@ -1,4 +1,4 @@
-public class CatalogueParts {
+public class CatalogueParts implements Comparable <CatalogueParts> {
 
     private int partNumber;
     private String brand;
@@ -21,8 +21,17 @@ public class CatalogueParts {
         }
 
 
+    @Override
+    public int compareTo(CatalogueParts catalogueParts) {
+        int result = Integer.compare(this.partNumber, partNumber);
+
+        return result;
+
 
     }
+
+
+}
 
 
 

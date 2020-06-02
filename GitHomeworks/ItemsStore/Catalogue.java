@@ -1,30 +1,61 @@
 import java.util.LinkedList;
-import java.util.Map;
+import java.util.Objects;
 
-public class Catalogue  {
+public class Catalogue {
 
-    public static void main(String[] args) {
-
-
-
-        CatalogueParts cat1 = new CatalogueParts(1, "radeczek", "bestia");
-        CatalogueParts cat2 = new CatalogueParts(3, "najk", "Wiesław");
-        CatalogueParts cat3 = new CatalogueParts(2, "adik", "adaś");
-        CatalogueParts cat4 = new CatalogueParts(5, "umbero", "pjoter");
-        CatalogueParts cat5 = new CatalogueParts(4, "ribok", " kolanko");
+private LinkedList<CatalogueParts> parts;
 
 
-        LinkedList <CatalogueParts> catalogue = new LinkedList();
+        public Catalogue(LinkedList<CatalogueParts> parts1){
 
-            catalogue.add(cat1);
-            catalogue.add(cat2);
-            catalogue.add(cat3);
-            catalogue.add(cat4);
-            catalogue.add(cat5);
+            this.parts=parts1;
+        }
 
-        System.out.println(catalogue.get(4));
+    public LinkedList<CatalogueParts> getParts() {
+        return parts;
+    }
+
+    public void setParts(LinkedList<CatalogueParts> parts) {
+        this.parts = parts;
+    }
+
+    @Override
+    public String toString() {
+        return "Catalogue{" +
+                "parts=" + parts +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Catalogue catalogue = (Catalogue) o;
+        return Objects.equals(parts, catalogue.parts);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(parts);
+    }
+
+    LinkedList<CatalogueParts> catParts = new LinkedList<CatalogueParts>();
+    public void addParts(CatalogueParts parts1) {
+
+        if (!catParts.contains(parts1)) {
+            catParts.add(parts1);
+        }
 
     }
 
 
-}
+
+    }
+
+
+
+
+
+
+
+
