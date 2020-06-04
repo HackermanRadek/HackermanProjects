@@ -26,5 +26,5 @@ public class CatalogueTester {
 
 
         System.out.println(guns.get(99));
-
+        System.out.println(guns.get(10));
     }}

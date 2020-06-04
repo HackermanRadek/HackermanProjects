@@ -1,22 +1,23 @@
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.Objects;
 
 public class Catalogue {
 
-private LinkedList<CatalogueParts> parts;
+private Map<Integer,CatalogueParts> parts;
 
 
-        public Catalogue(LinkedList<CatalogueParts> parts1){
+        public Catalogue(Map<Integer,CatalogueParts> parts1){
 
             this.parts=parts1;
         }
 
-    public LinkedList<CatalogueParts> getParts() {
+    public Map<Integer, CatalogueParts> getParts() {
         return parts;
     }
 
     public void setParts(LinkedList<CatalogueParts> parts) {
-        this.parts = parts;
+        this.parts = (Map<Integer, CatalogueParts>) parts;
     }
 
     @Override
