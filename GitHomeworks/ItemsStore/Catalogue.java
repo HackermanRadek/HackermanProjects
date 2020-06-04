@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Objects;
@@ -40,11 +41,11 @@ private Map<Integer,CatalogueParts> parts;
         return Objects.hash(parts);
     }
 
-    LinkedList<CatalogueParts> catParts = new LinkedList<CatalogueParts>();
+    Map<Integer,CatalogueParts> catParts = new HashMap<>();
     public void addParts(CatalogueParts parts1) {
 
-        if (!catParts.contains(parts1)) {
-            catParts.add(parts1);
+        if (!catParts.containsValue(parts1)) {
+            catParts.put(1,parts1);
         }
 
     }
