@@ -1,30 +1,22 @@
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.Map;
 import java.util.Objects;
 
-public class Catalogue {
+public class Catalogue{
+    private Parts parts;
+    private String name;
+    private Map map;
+    public Catalogue(String name, Map map){
 
-private Map<Integer,CatalogueParts> parts;
-
-
-        public Catalogue(Map<Integer,CatalogueParts> parts1){
-
-            this.parts=parts1;
-        }
-
-    public Map<Integer, CatalogueParts> getParts() {
-        return parts;
-    }
-
-    public void setParts(LinkedList<CatalogueParts> parts) {
-        this.parts = (Map<Integer, CatalogueParts>) parts;
+        this.name = name;
+        this.map = map;
     }
 
     @Override
     public String toString() {
         return "Catalogue{" +
-                "parts=" + parts +
+                "name='" + name + '\'' +
+                ", map=" + map +
                 '}';
     }
 
@@ -33,31 +25,51 @@ private Map<Integer,CatalogueParts> parts;
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Catalogue catalogue = (Catalogue) o;
-        return Objects.equals(parts, catalogue.parts);
+        return Objects.equals(name, catalogue.name) &&
+                Objects.equals(map, catalogue.map);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(parts);
+        return Objects.hash(name, map);
     }
 
-    Map<Integer,CatalogueParts> catParts = new HashMap<>();
-    public void addParts(CatalogueParts parts1) {
+    public Map getMap() {
+        return map;
+    }
 
-        if (!catParts.containsValue(parts1)) {
-            catParts.put(1,parts1);
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
+
+
+    public void addToCatalogue(Parts parts){
+
+          map.putIfAbsent(parts, map);
+
+    }
+
+    public void returnNumber(Integer x ){
+
+        if (x==parts.getNumber()){
+
+            System.out.println("You got a part with a number of: " + parts.getNumber());
+
         }
 
     }
 
 
 
-    }
 
-
-
-
-
-
-
-
+}

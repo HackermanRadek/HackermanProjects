@@ -13,6 +13,7 @@ public class StoreTester {
         Items famas = new Items("Famas",2200);
         Items mp7 = new Items("MP7", 1700);
 
+        System.out.println(mp7);
 
         LinkedList<Items>storeItems =new LinkedList<Items>();
                 storeItems.add(ak47);
