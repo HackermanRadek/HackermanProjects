@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.util.LinkedList;
 
 public class BoxTester {
@@ -43,21 +44,33 @@ public class BoxTester {
         fantasyBox.addItems(witcher);
         System.out.println(fantasyBox);
 
+        Shelf<Box> shelf = new Shelf();
+        shelf.addBoxes(bookBox);
+        shelf.addBoxes(fantasyBox);
+        shelf.addBoxes(toyBox);
+        shelf.addBoxes(foodBox);
+        System.out.println(shelf);
 
-
-            Shelf toyShelf = new Shelf(toyBox);
+        Shelf<Box<Toy>> toyShelf = new Shelf<>();
+        toyShelf.addBoxes(toyBox);
         System.out.println(toyShelf);
 
 
-        Shelf bookShelf = new Shelf(bookBox);
+        Shelf<Box<Food>>foodShelf = new Shelf<>();
+        foodShelf.addBoxes(foodBox);
+        System.out.println(foodShelf);
+
+
+        Shelf<Box<Fantasy>> fantasyShelf  = new Shelf<>();
+        fantasyShelf.addBoxes(fantasyBox);
+        System.out.println(fantasyShelf);
+
+
+
+        Shelf<Box<Book>> bookShelf = new Shelf<>();
+        bookShelf.addBoxes(bookBox);
+
         System.out.println(bookShelf);
 
-
-        Shelf generalShelf = new Shelf(box);
-        System.out.println(generalShelf);
-
-
     }
-
-
 }

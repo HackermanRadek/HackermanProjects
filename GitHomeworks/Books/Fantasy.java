@@ -1,4 +1,5 @@
-public class Fantasy extends Book {
+public class Fantasy extends Book
+{
     public Fantasy(String tittle) {
         super(tittle);
     }

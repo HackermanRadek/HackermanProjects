@@ -1,18 +1,25 @@
 import java.util.LinkedList;
 
-public class Shelf {
+public class Shelf <T>  {
 
-private Box box;
+public Shelf(){
 
-    public Shelf(Box box){
+}
 
-        this.box=box;
-
-
-    }
+LinkedList<T> shelf = new LinkedList<>();
 
     @Override
     public String toString() {
-        return "Shelf: " + box;
+        return "Shelf{" +
+                "shelf:" + shelf +
+                '}';
     }
+
+    public void addBoxes(T box){
+    if (!shelf.contains(box)) {
+        shelf.add(box);
+    }
+
+}
+
 }
