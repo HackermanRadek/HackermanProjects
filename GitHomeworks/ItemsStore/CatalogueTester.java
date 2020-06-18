@@ -8,19 +8,18 @@ public class CatalogueTester{
         Parts mp5 = new Parts(1500, "MP5");
 
 
-        Map riffle = new HashMap();
+        Map<Integer, Parts> map = new HashMap<>();
 
-        Catalogue guns = new Catalogue("GUNS", riffle);
-
-        guns.addToCatalogue(mp5);
-        guns.addToCatalogue(usp);
-        guns.addToCatalogue(ak47);
-
-
-        System.out.println(guns);
+        Catalogue catalogue = new Catalogue(map,ak47 );
+        catalogue.addPart(ak47);
+        catalogue.addPart(usp);
+        catalogue.addPart(mp5);
 
 
-        guns.returnNumber(200);
+        System.out.println(catalogue);
+
+        catalogue.getByPartNumber(2700);
+
 
     }
 }

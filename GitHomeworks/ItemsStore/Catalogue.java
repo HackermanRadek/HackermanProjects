@@ -1,22 +1,23 @@
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
 public class Catalogue{
-    private Parts parts;
-    private String name;
-    private Map map;
-    public Catalogue(String name, Map map){
 
-        this.name = name;
-        this.map = map;
+    private Map<Integer,Parts> map;
+    private Parts test;
+
+    public Catalogue(Map<Integer, Parts> map, Parts test){
+
+        this.map=map;
+
+        this.test=test;
+
     }
 
     @Override
     public String toString() {
         return "Catalogue{" +
-                "name='" + name + '\'' +
-                ", map=" + map +
+                "map=" + map +
                 '}';
     }
 
@@ -25,51 +26,39 @@ public class Catalogue{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Catalogue catalogue = (Catalogue) o;
-        return Objects.equals(name, catalogue.name) &&
-                Objects.equals(map, catalogue.map);
+        return Objects.equals(map, catalogue.map);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, map);
+        return Objects.hash(map);
     }
 
-    public Map getMap() {
+    public Map<Integer, Parts> getMap() {
         return map;
     }
 
-    public void setMap(Map map) {
+    public void setMap(Map<Integer, Parts> map) {
         this.map = map;
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public void addPart(Parts parts){
 
+        for (int i = 0; i < 100; i++) {
+            if (!map.containsValue(parts)){
+                map.putIfAbsent(i+1, parts);
 
-
-
-    public void addToCatalogue(Parts parts){
-
-          map.putIfAbsent(parts, map);
-
-    }
-
-    public void returnNumber(Integer x ){
-
-        if (x==parts.getNumber()){
-
-            System.out.println("You got a part with a number of: " + parts.getNumber());
-
+            }
         }
-
     }
 
+    public void getByPartNumber(Integer someNumber){
 
-
+       if (someNumber.equals(test.getNumber())){
+           System.out.println(test.getName() +" -- "+ test.getNumber());
+       }
+    }
 
 }
+
