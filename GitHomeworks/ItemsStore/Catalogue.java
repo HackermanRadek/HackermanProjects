@@ -1,17 +1,12 @@
-import java.util.Map;
+import java.util.HashMap;
 import java.util.Objects;
 
 public class Catalogue{
 
-    private Map<Integer,Parts> map;
-    private Parts test;
+    private HashMap map;
 
-    public Catalogue(Map<Integer, Parts> map, Parts test){
-
-        this.map=map;
-
-        this.test=test;
-
+    public Catalogue(HashMap map) {
+        this.map = map;
     }
 
     @Override
@@ -29,35 +24,32 @@ public class Catalogue{
         return Objects.equals(map, catalogue.map);
     }
 
+    public HashMap getMap() {
+        return map;
+    }
+
+    public void setMap(HashMap map) {
+        this.map = map;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(map);
     }
 
-    public Map<Integer, Parts> getMap() {
-        return map;
+    public void addPart(Parts part){
+
+        map.put(part.getNumber(), part);
+
     }
 
-    public void setMap(Map<Integer, Parts> map) {
-        this.map = map;
-    }
-
-
-    public void addPart(Parts parts){
-
-        for (int i = 0; i < 100; i++) {
-            if (!map.containsValue(parts)){
-                map.putIfAbsent(i+1, parts);
-
-            }
+   public void getByNumber(Integer someNumber){
+        if (map.containsKey(someNumber)){
+            System.out.println("This is part: " + someNumber);
+        } else {
+            System.out.println("No such part");
         }
-    }
 
-    public void getByPartNumber(Integer someNumber){
-
-       if (someNumber.equals(test.getNumber())){
-           System.out.println(test.getName() +" -- "+ test.getNumber());
-       }
     }
 
 }

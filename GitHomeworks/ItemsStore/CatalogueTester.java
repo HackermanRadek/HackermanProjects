@@ -1,3 +1,5 @@
+import com.sun.jdi.Value;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,19 +9,16 @@ public class CatalogueTester{
         Parts usp = new Parts(200, "USP");
         Parts mp5 = new Parts(1500, "MP5");
 
+        HashMap guns = new HashMap();
 
-        Map<Integer, Parts> map = new HashMap<>();
-
-        Catalogue catalogue = new Catalogue(map,ak47 );
+        Catalogue catalogue = new Catalogue(guns);
         catalogue.addPart(ak47);
         catalogue.addPart(usp);
         catalogue.addPart(mp5);
 
-
         System.out.println(catalogue);
 
-        catalogue.getByPartNumber(2700);
-
+        catalogue.getByNumber(1500);
 
     }
 }
