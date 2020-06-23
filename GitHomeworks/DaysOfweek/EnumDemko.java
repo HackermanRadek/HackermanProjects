@@ -7,22 +7,10 @@ public class EnumDemko {
         System.out.println(DayOfWeek.fromPolishName("sobota"));
         System.out.println(DayOfWeek.fromEnglishName("friday"));
 
-
-        DayOfWeek saturday = DayOfWeek.SAT;
-        DayOfWeek monday = DayOfWeek.MON;
-        DayOfWeek tue = DayOfWeek.TUE;
-        DayOfWeek wed = DayOfWeek.WED;
-        DayOfWeek thu = DayOfWeek.THU;
-        DayOfWeek fri = DayOfWeek.FRI;
-        DayOfWeek sun = DayOfWeek.SUN;
-
-
-        System.out.println(monday.workingDay());
-        System.out.println(saturday.workingDay());
-
-
-
-
+        System.out.println(DayOfWeek.getWorkingDays());
+        System.out.println(DayOfWeek.getWeekends());
+        System.out.println(DayOfWeek.isItWeekend(DayOfWeek.FRI));
+        System.out.println(DayOfWeek.isItWeekend(DayOfWeek.SAT));
 
     }
 }

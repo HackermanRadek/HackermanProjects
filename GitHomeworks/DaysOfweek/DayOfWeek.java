@@ -20,6 +20,18 @@ public enum DayOfWeek {
         this.workingDay = workingDay;
     }
 
+    public boolean isWorkingDay() {
+        return workingDay;
+    }
+
+    public String getEnglishName() {
+        return englishName;
+    }
+
+    public String getPolishName() {
+        return polishName;
+    }
+
     public static DayOfWeek fromPolishName(String polish) {
         for (DayOfWeek dayOfWeek : values()) {
             if (dayOfWeek.polishName.equalsIgnoreCase(polish)) {
@@ -42,14 +54,44 @@ public enum DayOfWeek {
 
     }
 
+    public static LinkedList getWorkingDays() {
 
-    public boolean workingDay() {
+        LinkedList workingDays = new LinkedList();
 
-        return workingDay;
+        for (DayOfWeek dayOfWeek : values()) {
+            if (dayOfWeek.workingDay) {
+                workingDays.add(dayOfWeek);
+
+            }
+        }
+            return workingDays;
+
+    }
+
+    public static LinkedList getWeekends(){
+
+        LinkedList weekends =new LinkedList();
+
+        for (DayOfWeek dayOfWeek: values()){
+
+            if (!dayOfWeek.workingDay){
+                weekends.add(dayOfWeek);
+            }
+        }
+        return weekends;
     }
 
 
+    public static boolean isItWeekend(DayOfWeek dayOfWeek){
 
+        if (dayOfWeek.workingDay){
+            return false;
+        }else {
+            return true;
+        }
+
+
+    }
 
 
 }
