@@ -1,12 +1,13 @@
+
 import java.util.LinkedList;
 
-public class Shelf <T>  {
+public class Shelf <Box>  {
 
-public Shelf(){
+    public Shelf(){
 
-}
+    }
 
-LinkedList<T> shelf = new LinkedList<>();
+    LinkedList<Box> shelf = new LinkedList<>();
 
     @Override
     public String toString() {
@@ -15,11 +16,14 @@ LinkedList<T> shelf = new LinkedList<>();
                 '}';
     }
 
-    public void addBoxes(T box){
-    if (!shelf.contains(box)) {
-        shelf.add(box);
-    }
+    public void addBoxes(Box box){
+        if (!shelf.contains(box)) {
+            shelf.add(box);
+        
+        }
 
-}
+
+
+    }
 
 }

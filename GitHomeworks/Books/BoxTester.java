@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.util.LinkedList;
+import java.util.List;
 
 public class BoxTester {
 
@@ -10,14 +11,14 @@ public class BoxTester {
         Food pizza = new Food("Pizza");
         Book sniper = new Book("Sniper");
 
-        LinkedList items = new LinkedList();
+        LinkedList<Item> items = new LinkedList();
         items.add(witcher);
         items.add(ball);
         items.add(pizza);
         items.add(sniper);
 
 
-        Box box = new Box();
+        Box<Item> box = new Box();
         box.addItems(witcher);
         box.addItems(ball);
         box.addItems(pizza);
@@ -68,9 +69,8 @@ public class BoxTester {
 
 
         Shelf<Box<Book>> bookShelf = new Shelf<>();
-        bookShelf.addBoxes(bookBox);
+            bookShelf.addBoxes(bookBox);
 
-        System.out.println(bookShelf);
 
     }
 }
