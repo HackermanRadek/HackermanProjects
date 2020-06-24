@@ -54,9 +54,9 @@ public enum DayOfWeek {
 
     }
 
-    public static LinkedList getWorkingDays() {
+    public static LinkedList<DayOfWeek> getWorkingDays() {
 
-        LinkedList workingDays = new LinkedList();
+        LinkedList<DayOfWeek> workingDays = new LinkedList();
 
         for (DayOfWeek dayOfWeek : values()) {
             if (dayOfWeek.workingDay) {
@@ -68,9 +68,9 @@ public enum DayOfWeek {
 
     }
 
-    public static LinkedList getWeekends(){
+    public static LinkedList<DayOfWeek> getWeekends(){
 
-        LinkedList weekends =new LinkedList();
+        LinkedList<DayOfWeek> weekends =new LinkedList();
 
         for (DayOfWeek dayOfWeek: values()){
 
@@ -84,11 +84,7 @@ public enum DayOfWeek {
 
     public static boolean isItWeekend(DayOfWeek dayOfWeek){
 
-        if (dayOfWeek.workingDay){
-            return false;
-        }else {
-            return true;
-        }
+        return !dayOfWeek.workingDay;
 
 
     }
