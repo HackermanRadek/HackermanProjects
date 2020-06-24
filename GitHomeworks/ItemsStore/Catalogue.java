@@ -3,9 +3,9 @@ import java.util.Objects;
 
 public class Catalogue{
 
-    private HashMap map;
+    private HashMap<Integer,Parts> map;
 
-    public Catalogue(HashMap map) {
+    public Catalogue(HashMap<Integer, Parts> map) {
         this.map = map;
     }
 
@@ -24,13 +24,6 @@ public class Catalogue{
         return Objects.equals(map, catalogue.map);
     }
 
-    public HashMap getMap() {
-        return map;
-    }
-
-    public void setMap(HashMap map) {
-        this.map = map;
-    }
 
     @Override
     public int hashCode() {
@@ -43,14 +36,15 @@ public class Catalogue{
 
     }
 
-   public void getByNumber(Integer someNumber){
+   public Parts getByNumber(Integer someNumber){
         if (map.containsKey(someNumber)){
             System.out.println("This is part: " + someNumber);
         } else {
             System.out.println("No such part");
         }
 
-    }
+        return map.get(someNumber);
 
+    }
 }
 
