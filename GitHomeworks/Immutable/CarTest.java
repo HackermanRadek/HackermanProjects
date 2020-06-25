@@ -15,8 +15,9 @@ public class CarTest {
         wheels.add(wheel3);
         wheels.add(wheel4);
 
-        Car car = new Car("Ford", "Mustang", engine , wheels);
 
+
+        Car car = Car.createNewInstance("Ford", "Mustang", engine, wheels);
         System.out.println(car);
 
 

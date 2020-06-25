@@ -7,7 +7,7 @@ public final class Car {
     private final Engine engine;
     private final LinkedList<Wheel> wheel;
 
-    public Car(String manufacturer, String model, Engine engine, LinkedList<Wheel> wheel) {
+    private Car(String manufacturer, String model, Engine engine, LinkedList<Wheel> wheel) {
         this.manufacturer = manufacturer;
         this.model = model;
         this.engine = engine;
@@ -55,4 +55,11 @@ public final class Car {
                 ", wheel:" + wheel +
                 '}';
     }
+
+
+    public static Car createNewInstance(String manufacturer, String model, Engine engine, LinkedList<Wheel> wheel){
+        return new Car(manufacturer, model, engine, wheel);
+    }
+
+
 }
