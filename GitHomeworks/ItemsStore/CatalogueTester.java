@@ -9,16 +9,16 @@ public class CatalogueTester{
         Parts usp = new Parts(200, "USP");
         Parts mp5 = new Parts(1500, "MP5");
 
-        HashMap guns = new HashMap();
 
-        Catalogue catalogue = new Catalogue(guns);
+
+        Catalogue catalogue = new Catalogue();
         catalogue.addPart(ak47);
         catalogue.addPart(usp);
         catalogue.addPart(mp5);
 
         System.out.println(catalogue);
 
-        catalogue.getByNumber(2700);
+        System.out.println(catalogue.getByNumber(2700));
 
     }
 }

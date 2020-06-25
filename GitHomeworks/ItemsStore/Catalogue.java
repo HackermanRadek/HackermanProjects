@@ -5,8 +5,9 @@ public class Catalogue{
 
     private HashMap<Integer,Parts> map;
 
-    public Catalogue(HashMap<Integer, Parts> map) {
-        this.map = map;
+    public Catalogue() {
+
+        this.map = new HashMap<>();
     }
 
     @Override
@@ -36,15 +37,10 @@ public class Catalogue{
 
     }
 
-   public Parts getByNumber(Integer someNumber){
-        if (map.containsKey(someNumber)){
-            System.out.println("This is part: " + someNumber);
-        } else {
-            System.out.println("No such part");
-        }
+   public Parts getByNumber(Integer someNumber) {
 
-        return map.get(someNumber);
-
-    }
+       if (map.containsKey(someNumber)) {
+           return map.get(someNumber);
+       }    return map.get(someNumber);
+   }
 }
-
